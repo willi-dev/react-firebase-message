@@ -9,32 +9,12 @@ class MessageList extends Component {
     this.state = {
       messages: []
     };
-
-    // let app = this.props.db.database().ref('/messages');
-    // app.on('value', snapshot => {
-    //   this.getData(snapshot.val());
-    // });
   }
 
-  // getData(values){
-  //   let messagesVal = values;
-  //   let messages = _(messagesVal)
-  //                   .keys()
-  //                   .map( messageKey => {
-  //                     let cloned = _.clone(messagesVal[messageKey]);
-  //                     cloned.key = messageKey;
-  //                     return cloned;
-  //                   })
-  //                   .value();
-  //   this.setState({
-  //     messages: messages
-  //   });
-  // }
-
   render() {
-    let messageNodes = this.state.messages.map((message) => {
+    let messageNodes = this.props.msg.map( (message) => {
       return (
-        <div className="card">
+        <div key={message.key} className="card">
           <div className="card-content">
             <Message message={message.message} />
           </div>

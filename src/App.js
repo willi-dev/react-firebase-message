@@ -10,18 +10,17 @@ class App extends Component {
   
   componentWillMount() {
     this.props.fetchMessages();
-    console.log( this.props );
   }
 
   render() {
-    console.log( this.props )
+    console.log( this.props.msg )
     return (
       <div className="container">
         <Header title="Simple Firebase App"/>
         <div className="columns">
           <div className="column is-3"></div>
           <div className="column is-6">
-            <MessageList />
+            <MessageList msg={this.props.msg}/>
           </div>
         </div>
         <div className="columns">
