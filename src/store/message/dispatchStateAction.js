@@ -23,6 +23,10 @@ const dispatchStateToProps = dispatch => {
         dispatch({type: 'FETCH_MESSAGES_FULFILLED', payload: getData( snapshot.val() )});
       });
     },
+
+    addMessages: () => {
+      // core here 
+    }
   }
 }
 
