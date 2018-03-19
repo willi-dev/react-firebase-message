@@ -18,14 +18,17 @@ const dispatchStateToProps = dispatch => {
   return {
     // fetch users
     fetchMessages: () => {
-      let messageData = firebase.database().ref('/messages');
+      let messageData = firebase.database().ref('/messages').orderByKey();
       messageData.on( 'value', snapshot => {
         dispatch({type: 'FETCH_MESSAGES_FULFILLED', payload: getData( snapshot.val() )});
       });
     },
 
-    addMessages: () => {
-      // core here 
+    addMessage: (msg) => {
+      let addValue = firebase.database().ref('/messages');
+      addValue.push({
+        message: msg
+      });
     }
   }
 }

@@ -5,6 +5,7 @@ import dispatchStateToProps from './store/message/dispatchStateAction';
 import Header from './components/Header';
 import MessageBox from './components/MessageBox';
 import MessageList from './components/MessageList';
+// import firebase from './services/fbConfig';
 
 class App extends Component {
   
@@ -13,6 +14,7 @@ class App extends Component {
   }
 
   render() {
+    console.log( this.props );
     console.log( this.props.msg )
     return (
       <div className="container">
@@ -26,7 +28,7 @@ class App extends Component {
         <div className="columns">
           <div className="column is-3"></div>
           <div className="column is-6">
-            <MessageBox />
+            <MessageBox/>
           </div>
         </div>
       </div>
